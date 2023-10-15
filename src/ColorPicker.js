@@ -5,21 +5,20 @@ function ColorPicker({ colors }) {
 
     function colorPickButton(){
         let colorList = document.querySelector(".Colors");
-        if(!isVisible){
+        if (!isVisible) {
             colorList.classList.remove("hidden");
             setIsVisible(true);
-        }
-        else{
-            colorList.classList.add("hidden");
-            setIsVisible(false);
         }
     }
 
     function colorButton(event){
-        console.log("clicked");
-        console.log(event.target.style.backgroundColor);
         let colorPickButton = document.querySelector(".ColorPickButton");
         colorPickButton.style.backgroundColor = event.target.style.backgroundColor;
+        let colorList = document.querySelector(".Colors");
+        if (isVisible) {
+            colorList.classList.add("hidden");
+            setIsVisible(false);
+        }
     }
 
     return (
